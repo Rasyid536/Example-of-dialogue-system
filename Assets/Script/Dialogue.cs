@@ -8,7 +8,7 @@ public class Dialogue : MonoBehaviour
     public int godMode; public bool godModes;
     public TextMeshProUGUI textComponent;
     public string[] lines;
-    public int[] textColor;
+    public int[] textColor; //Variabel untuk mengubah warna teks
     public float textSpeed = 0.05f, fadeTime = 1f;
 
     private float alphaValue, fadeAwayPerSecond;
@@ -16,7 +16,7 @@ public class Dialogue : MonoBehaviour
     private float remainingFadeTime;
     public AudioClip typeSound;
     private AudioSource audioSource;
-    public Branching branch;
+    public Branching branch; // mengambil variabel branch dari skrip Branch
 
     void Start()
     {
@@ -69,7 +69,8 @@ public class Dialogue : MonoBehaviour
                 }
                 }
             }
-        // Validasi index untuk menghindari IndexOutOfRangeException
+            
+        // Validasi index untuk menghindari IndexOutOfRangeException pada textColor
         if (index < 0 || index >= textColor.Length) return;
 
         // Pengaturan warna teks berdasarkan textColor[index]
@@ -127,6 +128,7 @@ public class Dialogue : MonoBehaviour
             audioSource.Play();
         }
 
+        //teks direveal secara bertahap
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
@@ -143,6 +145,7 @@ public class Dialogue : MonoBehaviour
     // Pindah ke baris dialog berikutnya
     public void NewLine()
     {
+    
         if (index < lines.Length - 1)
         {
             index++;
