@@ -1,0 +1,1 @@
+aku nak SATE AYAM MADURA!!
